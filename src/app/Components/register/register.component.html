@@ -1,0 +1,67 @@
+<section>
+    <div class="d-flex justify-content-center ">
+        <div class="container shadow-lg border row">
+            <h1 class="my-2 text-center">Register</h1>
+            <div class="col-md-8">
+                <form (submit)="handleRegister()" [formGroup]="Register" class="container d-flex flex-column"
+                    enctype="multipart/form-data">
+                    <mat-form-field appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text" formControlName="firstname" class="">
+                        @if(Register.get('firstname')?.touched&&Register.get('firstname')?.errors){
+                        <mat-hint class="text-danger">This Field is Required</mat-hint>
+                        }
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" formControlName="lastname" class="">
+                        @if(Register.get('lastname')?.touched&&Register.get('lastname')?.errors){
+                        <mat-hint class="text-danger">This Field is Required</mat-hint>
+                        }
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" formControlName="email" class="">
+                        @if(Register.get('email')?.touched&&Register.get('email')?.errors){
+                        <mat-hint class="text-danger">This Field is Required</mat-hint>
+                        }
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password" class="" placeholder="LastName">
+                        @if
+                        (Register.get('password')?.touched&&Register.get('password')?.errors&&Register.get('password')?.getError('required'))
+                        {
+                        <mat-hint class="text-danger">Password is required</mat-hint>
+                        }
+                        @else if
+                        (Register.get('password')?.touched&&Register.get('password')?.errors&&Register.get('password')?.getError('pattern'))
+                        {
+                        <mat-hint class="text-danger">Password must have a number, an uppercase, a lowercase and a symbol</mat-hint>
+                        }
+                    </mat-form-field>
+
+                    <button [disabled]="Register.invalid" class="btn btn-outline-dark mb-3">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <img src="assets/signup-image.jpg" alt="SignUp">
+            </div>
+        </div>
+        <!-- Toast -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+          </div>
+         <!--  -->
+    </div>
+</section>

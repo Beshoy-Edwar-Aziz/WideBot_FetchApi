@@ -1,0 +1,9 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css');
+.img-cover{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+section{
+    padding: 80px 0;
+}

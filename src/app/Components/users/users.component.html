@@ -1,0 +1,43 @@
+<section>
+    @if(usersList.length==0){
+    <app-loading></app-loading>
+    }
+    <div class="container">
+        <h1 class="text-center display-1">Welcome</h1>
+        <input type="text" class="form-control" [(ngModel)]="searchValue" placeholder="Search User...">
+        <div class="d-flex justify-content-between">
+            <div>
+        <div class="input-group my-2">
+            <label class="me-2" for="name">By Name</label>
+            <input type="radio" value="name" [(ngModel)]="value" id="name" name="state">
+        </div>
+        <div class="input-group">
+            <label class="me-2" for="username">By UserName</label>
+            <input type="radio" value="username" [(ngModel)]="value" id="username" name="state">
+        </div>
+    </div>
+    <div>
+            <select class="btn btn-outline-secondary dropdown-toggle mt-3 drop" (click)="sortUser()">
+            <option selected disabled>Sort By</option>
+              <option value="name"><li><a class="dropdown-item" >Name</a></li></option>
+              <option value="username"><li><a class="dropdown-item">UserName</a></li></option>
+              <option value="email"><li><a class="dropdown-item">Email</a></li></option>
+            </select>
+    </div>
+        </div>
+        <div class="row gy-2">
+            @for (item of usersList.body|search:searchValue:value; track $index) {
+            <div class="col-lg-4 col-12 rounded">
+                <h2 class="text-center">User Profile</h2>
+                <div class="shadow text-center showUser" (click)="openUser(item.id)">
+                    <img src="assets/PlaceHolder.jpg" class="img-cover" [alt]="item.name">
+                    <p>Name: {{item.name}}</p>
+                    <p>UserName: {{item.username}}</p>
+                    <p>Email: {{item.email}}</p>
+                </div>
+            </div>
+            }
+        </div>
+        <mat-paginator [length]="TotalCount" [pageSize]="pageSize" (page)="nextPage($event)"></mat-paginator>
+    </div>
+</section>

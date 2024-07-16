@@ -1,0 +1,39 @@
+<section>
+    @if(userData.name==null){
+        <app-loading></app-loading>
+    }
+    <div class="container">
+        <div class="row gy-2">
+            <div class="col-lg-4 col-12 text-center">
+                <div class="border">
+                <img src="assets/PlaceHolder.jpg" class="img-cover" [alt]="userData?.name">
+                <h1>{{userData?.name}}</h1>
+                <p>User Info</p>
+                <div>
+                    <h2>UserName: {{userData?.username}}</h2>
+                    <h2>Email: <a [href]="userData?.email">{{userData?.email}}</a></h2>
+                    <h2>Phone: {{userData?.phone}}</h2>
+                    <h2>WebSite: <a [href]="userData?.website">{{userData?.website}}</a></h2>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-8 col-12">
+            <div class="border p-2">
+                <h2>Address</h2>
+                <div>
+                    <h3>StreetName: {{userData?.address?.street}}</h3>
+                    <h3>suite: {{userData?.address?.suite}}</h3>
+                    <h3>City: {{userData?.address?.city}}</h3>
+                </div>
+                <h2>Company</h2>
+                <div>
+                    <h3>Name: {{userData?.company?.name}}</h3>
+                    <h3>Catch Phrase: {{userData?.company?.catchPhrase}}</h3>
+                    <h3>bs: {{userData?.company?.bs}}</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
