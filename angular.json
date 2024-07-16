@@ -16,6 +16,8 @@
             "outputPath": "dist/wide-bot-fetch-api",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "sweetalert2"],
             "polyfills": [
               "zone.js"
             ],
